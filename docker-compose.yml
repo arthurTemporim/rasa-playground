@@ -4,6 +4,6 @@ services:
   rasa:
     build: .
     volumes:
-      - ./:/bot/
+      - ./bot/:/bot/
     ports:
       - 5005:5005
