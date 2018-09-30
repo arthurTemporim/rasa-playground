@@ -1,3 +1,7 @@
+# Simple rasa bot
+
+This is a simple console rasa bot configuration made using [rasa quickstart](https://rasa.com/docs/core/quickstart/).
+
 ## Usage
 
 * Initialize docker:
@@ -20,6 +24,20 @@ Execute the runing container
 
 ```sh
 sudo docker exec -it <container_name> bash
+```
+
+## RASA commands
+
+* train nlu:
+
+```sh
+python -m rasa_core.train -d domain.yml -s stories.md -o models/dialogue
+```
+
+* Run locally:
+
+```sh
+python -m rasa_core.run -d models/dialogue
 ```
 
 ## Reference
