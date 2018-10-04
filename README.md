@@ -14,7 +14,7 @@ this topic and you will have a docker runing to use rasa commands.
 sudo docker-compose up
 ```
 
-when appears `Attaching to rasa_rasa_1` means that the container is running.
+when appears `Attaching to rasa_playground_rasa_1` means that the container is running.
 
 * Access the container:
 
@@ -22,7 +22,7 @@ when appears `Attaching to rasa_rasa_1` means that the container is running.
 sudo docker ps
 ```
 
-see the name of the container, probably `rasa_rasa_1`
+see the name of the container, probably `rasa_playground_rasa_1`
 
 Execute the running container
 
@@ -36,19 +36,58 @@ are updated automatically.
 
 ## RASA commands
 
-* Train nlu:
+* Train a Dialogue Model:
+
+This will train the dialogue model and store it into models/dialogue
+
 ```sh
 python -m rasa_core.train -d domain.yml -s stories.md -o models/dialogue
 ```
 
-* Train with using nlu examples
+* Train with using nlu examples:
+
 ```sh
 python -m rasa_nlu.train -c nlu_config.yml --data nlu.md -o models --fixed_model_name nlu --project current --verbose
 ```
 
-* Run locally:
+* Directly sending in the intents in the domain:
+
+To try the bot in this mode is needed to call the intents directly, like: `/greet` or `/goodby`
+
 ```sh
 python -m rasa_core.run -d models/dialogue
+```
+
+### Other ways to run
+
+* Runing the bot in console simply:
+
+```sh
+python -m rasa_core.run -d models/dialogue -u models/current/nlu
+```
+
+* Runing with API enabled and using log file:
+
+```sh
+python -m rasa_core.run --enable_api -d models/dialogue/ -u models/current/nlu/ -o out.log
+```
+
+### Using RASA API
+
+* Post a message to bot API:
+
+```sh
+curl -XPOST localhost:5005/conversations/default/respond -d '{"query":"Hello"}'
+```
+
+* Show track information about the bot execution like `confidence`, `timestamp` and `intent` data.
+```sh
+curl http://localhost:5005/conversations/default/tracker
+```
+### Script
+
+```sh
+python scripts/api.py
 ```
 
 ## References
