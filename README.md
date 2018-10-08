@@ -92,3 +92,5 @@ python scripts/api.py
 
 ## References
 [Quickstart](https://rasa.com/docs/core/quickstart/)
+[Api Tracker](https://rasa.com/docs/core/api/tracker/)
+[Debugging RASA](https://rasa.com/docs/core/debugging/)
