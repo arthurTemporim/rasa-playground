@@ -102,31 +102,58 @@ python scripts/api.py
 * Script result:
 
 ```
-Messages ammount: 8
-Ask: hi
-Answer: Hey! How are you?
-{'confidence': 0.959172785282135, 'name': 'greet'}
-Ask: good
-Answer: Great carry on!
-{'confidence': 0.9660112261772156, 'name': 'mood_great'}
-Ask: hi
-Answer: Hey! How are you?
-{'confidence': 0.959172785282135, 'name': 'greet'}
-Ask: bad
-Answer: Here is something to cheer you up:
-{'confidence': 0.9680836796760559, 'name': 'mood_unhappy'}
-Ask: yes
-Answer: Great carry on!
-{'confidence': 0.9524214863777161, 'name': 'mood_affirm'}
-Ask: hi
-Answer: Hey! How are you?
-{'confidence': 0.959172785282135, 'name': 'greet'}
-Ask: bad
-Answer: Here is something to cheer you up:
-{'confidence': 0.9680836796760559, 'name': 'mood_unhappy'}
-Ask: no
-Answer: Bye
-{'confidence': 0.9748631715774536, 'name': 'mood_deny'}
+--------------------------------------------------
+['Utter: ', 'action_listen']
+['User Message: ', 'hi']
+['Intent: ', 'greet']
+['Confidence: ', 0.959172785282135]
+--------------------------------------------------
+['Utter: ', 'utter_greet']
+['Utter: ', 'action_listen']
+['User Message: ', 'good']
+['Intent: ', 'mood_great']
+['Confidence: ', 0.9660112261772156]
+--------------------------------------------------
+['Utter: ', 'utter_happy']
+['Utter: ', 'action_listen']
+['User Message: ', 'hi']
+['Intent: ', 'greet']
+['Confidence: ', 0.959172785282135]
+--------------------------------------------------
+['Utter: ', 'utter_greet']
+['Utter: ', 'action_listen']
+['User Message: ', 'bad']
+['Intent: ', 'mood_unhappy']
+['Confidence: ', 0.9680836796760559]
+--------------------------------------------------
+['Utter: ', 'utter_cheer_up']
+['Utter: ', 'utter_did_that_help']
+['Utter: ', 'action_listen']
+['User Message: ', 'yes']
+['Intent: ', 'mood_affirm']
+['Confidence: ', 0.9524214863777161]
+--------------------------------------------------
+['Utter: ', 'utter_happy']
+['Utter: ', 'action_listen']
+['User Message: ', 'hi']
+['Intent: ', 'greet']
+['Confidence: ', 0.959172785282135]
+--------------------------------------------------
+['Utter: ', 'utter_greet']
+['Utter: ', 'action_listen']
+['User Message: ', 'bad']
+['Intent: ', 'mood_unhappy']
+['Confidence: ', 0.9680836796760559]
+--------------------------------------------------
+['Utter: ', 'utter_cheer_up']
+['Utter: ', 'utter_did_that_help']
+['Utter: ', 'action_listen']
+['User Message: ', 'no']
+['Intent: ', 'mood_deny']
+['Confidence: ', 0.9748631715774536]
+--------------------------------------------------
+['Utter: ', 'utter_goodbye']
+['Utter: ', 'action_listen']
 ```
 
 ## References
