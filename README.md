@@ -64,10 +64,10 @@ python -m rasa_core.run -d models/dialogue
 python -m rasa_core.run -d models/dialogue -u models/current/nlu
 ```
 
-* Runing with API enabled and using log file:
+* Runing with API enabled:
 
 ```sh
-python -m rasa_core.run --enable_api -d models/dialogue/ -u models/current/nlu/ -o out.log
+python -m rasa_core.run --enable_api -d models/dialogue/ -u models/current/nlu/
 ```
 
 ### Using RASA API
