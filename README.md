@@ -58,8 +58,6 @@ To try the bot in this mode is needed to call the intents directly, like: `/gree
 python -m rasa_core.run -d models/dialogue
 ```
 
-### Other ways to run
-
 * Runing the bot in console simply:
 
 ```sh
@@ -81,16 +79,58 @@ curl -XPOST localhost:5005/conversations/default/respond -d '{"query":"Hello"}'
 ```
 
 * Show track information about the bot execution like `confidence`, `timestamp` and `intent` data.
+
 ```sh
 curl http://localhost:5005/conversations/default/tracker
 ```
-### Script
+
+### RASA API script
+
+* While building a bot you will realise the need to understand the changes 
+made in `intents`, `stories`, `epochs` ammounts, etc. Thinking in it, i
+created a script that returns some importants data to understand
+the changes that you made cause in your bot.
+
+#### Usage
+
+* Running the script:
 
 ```sh
 python scripts/api.py
 ```
 
+* Script result:
+
+```
+Messages ammount: 8
+Ask: hi
+Answer: Hey! How are you?
+{'confidence': 0.959172785282135, 'name': 'greet'}
+Ask: good
+Answer: Great carry on!
+{'confidence': 0.9660112261772156, 'name': 'mood_great'}
+Ask: hi
+Answer: Hey! How are you?
+{'confidence': 0.959172785282135, 'name': 'greet'}
+Ask: bad
+Answer: Here is something to cheer you up:
+{'confidence': 0.9680836796760559, 'name': 'mood_unhappy'}
+Ask: yes
+Answer: Great carry on!
+{'confidence': 0.9524214863777161, 'name': 'mood_affirm'}
+Ask: hi
+Answer: Hey! How are you?
+{'confidence': 0.959172785282135, 'name': 'greet'}
+Ask: bad
+Answer: Here is something to cheer you up:
+{'confidence': 0.9680836796760559, 'name': 'mood_unhappy'}
+Ask: no
+Answer: Bye
+{'confidence': 0.9748631715774536, 'name': 'mood_deny'}
+```
+
 ## References
-[Quickstart](https://rasa.com/docs/core/quickstart/)
-[Api Tracker](https://rasa.com/docs/core/api/tracker/)
-[Debugging RASA](https://rasa.com/docs/core/debugging/)
+* [Quickstart](https://rasa.com/docs/core/quickstart/)
+* [Api Tracker](https://rasa.com/docs/core/api/tracker/)
+* [Debugging RASA](https://rasa.com/docs/core/debugging/)
+* [Synonyms](https://rasa.com/docs/nlu/0.13.6/dataformat/)
