@@ -36,18 +36,18 @@ are updated automatically.
 
 ## RASA commands
 
+* Train nlu :
+
+```sh
+python -m rasa_nlu.train -c nlu_config.yml --data nlu.md -o models --fixed_model_name nlu --project current --verbose
+```
+
 * Train a Dialogue Model:
 
 This will train the dialogue model and store it into models/dialogue
 
 ```sh
 python -m rasa_core.train -d domain.yml -s stories.md -o models/dialogue
-```
-
-* Train with using nlu examples:
-
-```sh
-python -m rasa_nlu.train -c nlu_config.yml --data nlu.md -o models --fixed_model_name nlu --project current --verbose
 ```
 
 * Directly sending in the intents in the domain:

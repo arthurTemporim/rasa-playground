@@ -13,7 +13,7 @@ def get_data():
     URL = 'http://localhost:5005/conversations/default/tracker'
     request = requests.get(url = URL)
     data = request.json()
-    #print(json.dumps(data, indent=4, sort_keys=True))
+    print(json.dumps(data, indent=4, sort_keys=True))
     event_tracker = []
     for e in data['events']:
         if 'event' in e:

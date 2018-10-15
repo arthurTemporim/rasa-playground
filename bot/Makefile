@@ -9,3 +9,9 @@ run_intent:
 
 run_api:
 	python -m rasa_core.run --enable_api -d models/dialogue/ -u models/current/nlu/
+
+run_debug:
+	python -m rasa_core.run -d models/dialogue/ -u models/current/nlu/ --debug
+
+run_api_debug:
+	python -m rasa_core.run -d models/dialogue/ -u models/current/nlu/ --debug --enable_api 
