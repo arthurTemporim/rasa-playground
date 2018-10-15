@@ -8,4 +8,5 @@ RUN pip install -r /tmp/requirements.txt
 
 WORKDIR bot/
 
-CMD sleep infinity
+#CMD sleep infinity
+CMD make train_1 train_2 run_api_debug 
