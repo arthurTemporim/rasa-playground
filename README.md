@@ -8,6 +8,12 @@ I create a docker to run the rasa comands, so is not necessary to use
 a virtualenv or install in your pc the rasa configurations, just follow
 this topic and you will have a docker runing to use rasa commands.
 
+* Go to **old** folder:
+
+```sh
+cd old
+```
+
 * Initialize docker:
 
 ```sh
@@ -120,40 +126,6 @@ python scripts/api.py
 ['Intent: ', 'greet']
 ['Confidence: ', 0.959172785282135]
 --------------------------------------------------
-['Utter: ', 'utter_greet']
-['Utter: ', 'action_listen']
-['User Message: ', 'bad']
-['Intent: ', 'mood_unhappy']
-['Confidence: ', 0.9680836796760559]
---------------------------------------------------
-['Utter: ', 'utter_cheer_up']
-['Utter: ', 'utter_did_that_help']
-['Utter: ', 'action_listen']
-['User Message: ', 'yes']
-['Intent: ', 'mood_affirm']
-['Confidence: ', 0.9524214863777161]
---------------------------------------------------
-['Utter: ', 'utter_happy']
-['Utter: ', 'action_listen']
-['User Message: ', 'hi']
-['Intent: ', 'greet']
-['Confidence: ', 0.959172785282135]
---------------------------------------------------
-['Utter: ', 'utter_greet']
-['Utter: ', 'action_listen']
-['User Message: ', 'bad']
-['Intent: ', 'mood_unhappy']
-['Confidence: ', 0.9680836796760559]
---------------------------------------------------
-['Utter: ', 'utter_cheer_up']
-['Utter: ', 'utter_did_that_help']
-['Utter: ', 'action_listen']
-['User Message: ', 'no']
-['Intent: ', 'mood_deny']
-['Confidence: ', 0.9748631715774536]
---------------------------------------------------
-['Utter: ', 'utter_goodbye']
-['Utter: ', 'action_listen']
 ```
 
 ## References
