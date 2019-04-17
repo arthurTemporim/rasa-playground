@@ -126,3 +126,147 @@ ls
 actions.py  credentials.yml  domain.yml     __init__.py  __pycache__  requirements.txt
 config.yml  data             endpoints.yml  models       README.md
 ```
+
+* Ok, now you need to now 2 things:
+
+1. type `rasa` in your terminal
+2. type `-h`, so will be `rasa -h`
+
+And that's it, with this command you have all you know about the new rasa!
+If you are not beliving, you can see the ouput:
+
+```sh
+rasa -h
+usage: rasa [-h] [--version]
+            {init,run,shell,train,interactive,test,show,data,up} ...
+
+Rasa command line interface. Rasa allows you to build your own conversational
+assistants 🤖. The 'rasa' command allows you to easily run most common commands
+like creating a new bot, training or evaluating models.
+
+positional arguments:
+  {init,run,shell,train,interactive,test,show,data,up}
+                        Rasa commands
+    init                Create a new project from a initial_project
+    run                 Start a Rasa server which loads a trained model
+    shell               Speak to a trained model on the command line
+    train               Train the Rasa bot
+    interactive         Teach the bot with interactive learning
+    test                Test a trained model
+    show                Visualize Rasa Stack data
+    data                Utils for the Rasa training files
+    up                  Run the Rasa Interface
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --version             Print installed Rasa version
+```
+
+* Ok, but if you want to use the comand `rasa run` and you don't know
+how to use it? Try this:
+
+```sh
+rasa run -h
+usage: rasa run [-h] [-v] [-vv] [--quiet] [-p PORT] [--auth_token AUTH_TOKEN]
+                [--cors [CORS [CORS ...]]] [--enable_api] [-o LOG_FILE]
+                [-c CONNECTOR] [--endpoints ENDPOINTS]
+                [--jwt_secret JWT_SECRET] [--jwt_method JWT_METHOD] [-m MODEL]
+                [--credentials CREDENTIALS]
+                [model-as-positional-argument] {core,nlu,actions} ...
+
+positional arguments:
+  model-as-positional-argument
+                        Path to a trained Rasa model. If a directory is
+                        specified, it will use the latest model in this
+                        directory. (default: None)
+  {core,nlu,actions}
+    core                Run a trained Core model
+    nlu                 Run a trained NLU model
+    actions             Run the action server
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -o LOG_FILE, --log_file LOG_FILE
+                        store log file in specified file (default:
+                        rasa_core.log)
+  --endpoints ENDPOINTS
+                        Configuration file for the connectors as a yml file
+                        (default: None)
+  -m MODEL, --model MODEL
+                        Path to a trained Rasa model. If a directory is
+                        specified, it will use the latest model in this
+                        directory. (default: models)
+  --credentials CREDENTIALS
+                        Authentication credentials for the connector as a yml
+                        file (default: credentials.yml)
+
+Python Logging Options:
+  -v, --verbose         Be verbose. Sets logging level to INFO (default: 20)
+  -vv, --debug          Print lots of debugging statements. Sets logging level
+                        to DEBUG (default: None)
+  --quiet               Be quiet! Sets logging level to WARNING (default:
+                        None)
+
+Server Settings:
+  -p PORT, --port PORT  port to run the server at (default: 5005)
+  --auth_token AUTH_TOKEN
+                        Enable token based authentication. Requests need to
+                        provide the token to be accepted. (default: None)
+  --cors [CORS [CORS ...]]
+                        enable CORS for the passed origin. Use * to whitelist
+                        all origins (default: None)
+  --enable_api          Start the web server api in addition to the input
+                        channel (default: False)
+
+Channels:
+  -c CONNECTOR, --connector CONNECTOR
+                        service to connect to (default: None)
+
+JWT Authentication:
+  --jwt_secret JWT_SECRET
+                        Public key for asymmetric JWT methods or shared
+                        secretfor symmetric methods. Please also make sure to
+                        use --jwt_method to select the method of the
+                        signature, otherwise this argument will be ignored.
+                        (default: None)
+  --jwt_method JWT_METHOD
+                        Method used for the signature of the JWT
+                        authentication payload. (default: HS256)
+```
+
+* That's it, everything more easier!
+
+* Let's try something:
+
+```sh
+rasa run --enable_api
+'None' not found. Using default location 'endpoints.yml' instead.
+2019-04-16 23:54:52 INFO     root  - Starting Rasa Core server on http://localhost:5005
+[2019-04-16 23:54:52 -0300] [6127] [INFO] Goin' Fast @ http://0.0.0.0:5005
+2019-04-16 23:54:52 INFO     sanic.root  - Goin' Fast @ http://0.0.0.0:5005
+2019-04-16 23:54:52.411889: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2019-04-16 23:54:52 INFO     tensorflow  - Restoring parameters from /tmp/tmp7kf30dmc/nlu/component_5_EmbeddingIntentClassifier.ckpt
+[2019-04-16 23:54:53 -0300] [6127] [INFO] Starting worker [6127]
+2019-04-16 23:54:53 INFO     sanic.root  - Starting worker [6127]
+```
+
+* And now let's send a message to our bot:
+
+```sh
+curl -XPOST localhost:5005/conversations/default/respond -d '{"query":"Hello"}'
+```
+
+* The Answer:
+
+```sh
+[{"recipient_id":"default","text":"Hey! How are you?"}]
+```
+
+
+## Final Considerations
+
+Thank you for reading this simple example of what Rasa will bring to us in
+the next days and weeks, i hope you like it!
+
+Fell free to comment, Fork and leave comments in issues or some other ways.
+Thank you very much!
