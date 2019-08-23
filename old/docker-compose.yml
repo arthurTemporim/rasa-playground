@@ -1,9 +1,0 @@
-version: '2'
-
-services:
-  rasa:
-    build: .
-    volumes:
-      - ./bot/:/bot/
-    ports:
-      - 5005:5005
