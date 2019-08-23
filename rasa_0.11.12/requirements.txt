@@ -1,0 +1,5 @@
+rasa-core==0.11.12
+rasa-core-sdk==0.11.5
+rasa-nlu==0.13.7
+sklearn-crfsuite==0.3.6
+spacy==2.0.16
