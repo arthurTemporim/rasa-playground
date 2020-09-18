@@ -3,6 +3,7 @@ bot/models/
 rasa_core.log
 rasa_env/
 external_tests/test/
+models
 
 # Created by https://www.gitignore.io/api/vim,linux,macos,python
 
