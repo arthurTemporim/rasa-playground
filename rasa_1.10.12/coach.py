@@ -19,9 +19,10 @@ DATA_DICT = {
 
 def train(data=DATA_DICT):
     rasa.train(
-        domain=DOMAIN_FILE,
-        config=CONFIG_FILE,
-        training_files=[NLU_FILE, STORIES_FILE],
+        domain=DATA_DICT["domain"],
+        config=DATA_DICT["config"],
+        training_files=[DATA_DICT["nlu"], DATA_DICT["stories"]],
+        # This line is commented to use default way to name models
         # output=model_name,
     )
 
